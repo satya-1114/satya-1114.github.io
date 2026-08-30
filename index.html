@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Annamneedi Satyanarayana | Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Annamneedi Satyanarayana is a Computer Science undergraduate and aspiring Full-Stack Developer focused on backend development, AI, cloud technologies, and building practical software solutions."
+    />
+    <meta name="author" content="Annamneedi Satyanarayana" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://satya-1114.github.io/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:title" content="Annamneedi Satyanarayana | Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Computer Science undergraduate building full-stack applications, backend systems, AI-enabled products and cloud solutions."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://satya-1114.github.io/" />
+    <meta property="og:image" content="https://satya-1114.github.io/profile.jpg" />
+    <meta property="og:site_name" content="Annamneedi Satyanarayana" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Annamneedi Satyanarayana | Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Computer Science undergraduate building full-stack applications, backend systems, AI-enabled products and cloud solutions."
+    />
+    <meta name="twitter:image" content="https://satya-1114.github.io/profile.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Apply the stored theme before paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem('asn-theme') || 'dark';
+          var dark =
+            stored === 'dark' ||
+            (stored === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Annamneedi Satyanarayana",
+        "jobTitle": "Full-Stack Developer",
+        "description": "Computer Science & Engineering undergraduate building full-stack applications, backend systems, AI-enabled products and cloud solutions.",
+        "alumniOf": "Bonam Venkata Chalamayya Engineering College",
+        "address": { "@type": "PostalAddress", "addressCountry": "India" },
+        "sameAs": [
+          "https://github.com/satya-1114",
+          "https://www.linkedin.com/in/annamneedi-s14"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

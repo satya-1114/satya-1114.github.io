@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* LIGHT — refined agency art direction: warm off-white, soft borders */
+  :root {
+    --background: 40 20% 97%;
+    --surface: 0 0% 100%;
+    --surface-muted: 40 16% 94%;
+    --foreground: 220 14% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 8%;
+
+    --primary: 220 14% 8%;
+    --primary-foreground: 40 20% 97%;
+
+    --secondary: 40 16% 94%;
+    --secondary-foreground: 220 14% 8%;
+
+    --muted: 40 12% 92%;
+    --muted-foreground: 220 6% 42%;
+
+    --accent: 244 68% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-soft: 244 70% 96%;
+
+    --destructive: 0 72% 44%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 12% 86%;
+    --input: 36 12% 86%;
+    --ring: 244 68% 50%;
+
+    --hairline: 36 12% 88%;
+    --radius: 0.375rem;
+
+    --shadow-soft: 0 1px 2px hsl(220 14% 8% / 0.04), 0 8px 24px -12px hsl(220 14% 8% / 0.12);
+    --shadow-lift: 0 2px 4px hsl(220 14% 8% / 0.05), 0 24px 48px -24px hsl(220 14% 8% / 0.18);
+    --grain-opacity: 0.02;
+  }
+
+  /* DARK — editorial art direction: near-black, oversized type, minimal borders */
+  .dark {
+    --background: 0 0% 3.5%;
+    --surface: 0 0% 5.5%;
+    --surface-muted: 0 0% 8%;
+    --foreground: 0 0% 97%;
+
+    --card: 0 0% 5.5%;
+    --card-foreground: 0 0% 97%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 97%;
+
+    --primary: 0 0% 97%;
+    --primary-foreground: 0 0% 3.5%;
+
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 97%;
+
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 58%;
+
+    --accent: 238 90% 70%;
+    --accent-foreground: 0 0% 4%;
+    --accent-soft: 238 60% 12%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 97%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 16%;
+    --ring: 238 90% 70%;
+
+    --hairline: 0 0% 13%;
+
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.5);
+    --shadow-lift: 0 24px 64px -32px hsl(0 0% 0% / 0.9);
+    --grain-opacity: 0.045;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 400ms ease, color 400ms ease;
+  }
+
+  ::selection {
+    background-color: hsl(var(--accent) / 0.25);
+    color: hsl(var(--foreground));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border: 3px solid hsl(var(--background));
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.6);
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16;
+  }
+
+  .section {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.68rem] uppercase tracking-[0.28em] text-muted-foreground;
+  }
+
+  .display {
+    @apply font-display font-semibold tracking-tighter;
+    line-height: 0.92;
+  }
+
+  .hairline {
+    border-color: hsl(var(--hairline));
+  }
+
+  .link-underline {
+    @apply relative inline-flex items-center gap-1.5;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-300;
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    @apply origin-left scale-x-100;
+  }
+}
+
+/* Grain — subtle in light, present in dark */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

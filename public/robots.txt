@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://satya-1114.github.io/sitemap.xml
